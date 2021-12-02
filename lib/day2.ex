@@ -1,4 +1,4 @@
-defmodule Day2 do
+defmodule Aoc2021.Day2 do
   @moduledoc """
   Main module for Day2, https://adventofcode.com/2021/day/2
   """

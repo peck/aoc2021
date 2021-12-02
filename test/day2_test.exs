@@ -1,5 +1,6 @@
 defmodule Day2Test do
   use ExUnit.Case
+  alias Aoc2021.Day2
   doctest Day2
 
   test "part 1 works with sample data" do

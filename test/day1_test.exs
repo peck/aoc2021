@@ -1,5 +1,7 @@
 defmodule Day1Test do
   use ExUnit.Case
+  alias Aoc2021.Day1
+
   doctest Day1
 
   test "depth_frequency works with sample input" do

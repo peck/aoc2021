@@ -1,13 +1,13 @@
-defmodule Day1 do
+defmodule Aoc2021.Day1 do
   @moduledoc """
   Main module for Day1, https://adventofcode.com/2021/day/1
   """
 
-  defp direction_finder([h | []]) do
+  defp direction_finder([_h | []]) do
     []
   end
 
-  defp direction_finder([h | t] = values) do
+  defp direction_finder([h | t] = _values) do
     diff = h - hd(t)
     cond do
       diff < 0 ->
@@ -47,7 +47,7 @@ defmodule Day1 do
     |> String.trim()
     |> String.split("\n")
     |> Enum.map(&String.to_integer(&1))
-    |> Enum.chunk_every(3, 1)
+    |> Enum.chunk_every(window_size, 1)
     |> Enum.map(&Enum.sum(&1))
     |> direction_finder()
     |> Enum.frequencies
