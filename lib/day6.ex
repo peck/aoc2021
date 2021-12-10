@@ -1,8 +1,5 @@
 defmodule Day6 do
-  require Logger
-
-  def part1(starting_pop, iterations) do
-    acc = %{
+  @starter %{
       0 => 0,
       1 => 0,
       2 => 0,
@@ -13,29 +10,21 @@ defmodule Day6 do
       7 => 0,
       8 => 0,
     }
+
+  def part1(starting_pop, iterations) do
     pop_map =
     starting_pop
     |> Enum.frequencies()
-    |> Map.merge(acc, fn _k, v1, v2 -> v1 end)
+    |> Map.merge(@starter, fn _k, v1, v2 -> v1 end)
 
     Enum.reduce(0..iterations, pop_map, fn(_x, acc) -> tick(acc) end)
+    |> Map.values
+    |> Enum.sum
   end
 
   def tick(population = %{}) do
-    starter = %{
-      0 => 0,
-      1 => 0,
-      2 => 0,
-      3 => 0,
-      4 => 0,
-      5 => 0,
-      6 => 0,
-      7 => 0,
-      8 => 0,
-    }
-
     population
-    |> Enum.reduce(starter, fn({k,v}, acc) ->
+    |> Enum.reduce(@starter, fn({k,v}, acc) ->
       case k do
         0 ->
           {_, ret} =
